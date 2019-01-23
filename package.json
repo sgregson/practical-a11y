@@ -1,19 +1,22 @@
 {
   "private": true,
   "version": "1.0.0",
-  "description": "Deck created with mdx-deck",
+  "description": "An MDX Deck on Practical Web Accessibility",
   "scripts": {
     "start": "mdx-deck deck.mdx",
-    "build": "mdx-deck build deck.mdx",
+    "build": "mdx-deck build --no-html deck.mdx",
     "pdf": "mdx-deck pdf deck.mdx",
     "image": "mdx-deck screenshot deck.mdx",
     "help": "mdx-deck"
   },
   "keywords": [],
-  "author": "Brent Jackson",
+  "author": "Spencer Gregson",
   "license": "MIT",
-  "devDependencies": {
-    "mdx-deck": "^1.6.7"
+  "dependencies": {
+    "mdx-deck": "^1.6.7",
+    "mdx-deck-code-surfer": "^0.5.5",
+    "raw-loader": "^1.0.0",
+    "styled-components": "^4.1.3"
   },
   "name": "boston-php-practical-a11y"
 }

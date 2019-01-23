@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "dist/*", "use": "@now/static" },
+    { "src": "img/*", "use": "@now/static" }
+  ]
+}

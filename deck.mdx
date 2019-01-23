@@ -1,23 +1,399 @@
-import { Head } from 'mdx-deck'
+import { Appear, Head, Notes, Code } from "mdx-deck";
+import { FullScreenCode, Invert, Split } from "mdx-deck/layouts";
+import { CodeSurfer } from "mdx-deck-code-surfer";
+const allGotchas = require("!raw-loader!./gotchas.jsx");
 
-export { default as theme } from './theme'
+import fromTheme, {
+  Card,
+  Flex,
+  Block,
+  RelativeLayout,
+  Caption,
+  Image,
+  Img,
+  Text,
+  List,
+  Grid
+} from "./theme";
+
+export const theme = fromTheme;
 
 <Head>
-  <title>Presentation Title</title>
+  <title>Practical Web Accessibility</title>
+  <meta name="twitter:site" content="@spencergregson" />
+  <meta name="twitter:title" content="Practical Web Accessibility" />
+  <meta
+    name="twitter:description"
+    content="A practical guide to making usable sites for all"
+  />
+  {/* <meta name="twitter:image" content="https://example.com/card.png" /> */}
 </Head>
-
-# Hello
+## Hello world!
+and thanks for coming!
 
 ---
 
-## Edit this file
+## Who I am
 
-To create your presentation
+<List>
+  <Appear>
+    <li>Spencer Gregson</li>
+    <li>
+      Frontend Engineer <code>@WAYFAIR</code>
+    </li>
+    <li>Accessibility Enthusiast</li>
+    <li>Owner of a Cat, many bikes and guitars</li>
+    <li>Former Architectural Designer</li>
+  </Appear>
+</List>
 
 ```notes
-- Create speaker notes in fenced code blocks
+"and why I'm giving this talk"
+
+...read the slide (5 bullets)
+
+That last one is where I got my started with Accessibility.
 ```
 
 ---
 
-<https://github.com/jxnblk/mdx-deck>
+<Image src="/img/AlMaryahIsland.jpg">
+  <h1>whether this ↓</h1>
+  <Caption>Al Maryah Island, Abu Dhabi, UAE</Caption>
+</Image>
+
+```notes
+Whether working on the designs of buildings and cities, in this case a Master Plan for an island in Abu Dhabi
+```
+
+---
+
+<Image src="/img/inForm_ipads.jpg">
+  <h1>or this ↑</h1>
+  <Caption>InForm Exhibit, BSA</Caption>
+</Image>
+
+```notes
+greatly informed my role as a software engineer.
+
+This was an interactive gallery exhibit for the Boston Society of Architects
+```
+
+---
+
+export default RelativeLayout;
+
+### Accessibility informs every aspect of what we do as creators of products and experiences
+
+---
+
+export default Split;
+
+<Appear>
+  <Img src="/img/xmas_profile.jpg" />
+</Appear>
+
+## That said
+
+<List unstyled>
+  <li>
+    <small>
+      My thoughts and opinions are my own and don't necessarily reflect my
+      current or former employers
+    </small>
+  </li>
+</List>
+
+```notes
+I'm going to try and keep this focused on Accessibility for the Web, but if you're interested in all that "other stuff", come grab me later.
+```
+
+---
+
+# 😅 so
+
+```notes
+So, with that out of the way let's talk accessibility.
+```
+
+---
+
+<Image src="/img/open_road.jpg">
+  <h1>The Road Ahead</h1>
+
+  <Caption>[Unsplash] Photo by Aleksandr Kozlovskii</Caption>
+</Image>
+
+```notes
+Someone once told me that you need to tell people where you're going before you even set off, so let's take a look at where I hope we all end up at the end of tonight.
+```
+
+---
+
+export default RelativeLayout;
+
+### `Practical Web Accessibility`
+
+<Grid gutter="10px">
+  <Flex flex="0 0 33.333%">
+    <h2>
+      <Text>What it is</Text>
+    </h2>
+  </Flex>
+  <Flex flex="0 0 33.333%">
+    <h2>
+      <Text>How to do it</Text>
+    </h2>
+  </Flex>
+  <Flex flex="0 0 33.333%">
+    <h2>
+      <Text>Preventing regression</Text>
+    </h2>
+  </Flex>
+</Grid>
+
+<Grid gutter="10px">
+  <Appear>
+    <Flex flex="0 0 33.333%">
+      <Text>Knowing is half the battle</Text>
+    </Flex>
+    <Flex flex="0 0 33.333%">
+      <Text>If you can't fix it, don't break it</Text>
+    </Flex>
+    <Flex flex="0 0 33.333%">
+      <Text>Let fixed problems stay fixed</Text>
+    </Flex>
+  </Appear>
+</Grid>
+
+```notes
+Tonight we're talking about Practical Web Accessibility
+```
+
+---
+
+export default RelativeLayout;
+
+# 1. What is Accessibility
+
+<Caption>
+  You'll often see it abbreviated <code>a11y</code>
+</Caption>
+
+```notes
+AKA "a11y" (pronounced ally, like the bank, or well-meaning members of a majority social group, or the british)
+
+Hopefully by the end of this presentation you'll know three things about Web Accessibility
+```
+
+---
+
+export default RelativeLayout;
+
+### `Usability`
+
+<Text>
+  <code>
+    The extent to which a product can be used by specified users to achieve
+    specified goals with effectiveness, efficiency and satisfaction in a
+    specified context of use.
+  </code>
+</Text>
+
+<small>
+  Software Engineering specification <strong>ISO 9241-11</strong>
+</small>
+
+<Caption>
+  <a href="https://www.interaction-design.org/literature/topics/usability">
+    https://www.interaction-design.org/
+  </a>
+</Caption>
+
+```notes
+Usability is the ease of use and learnability of a human-made object such as a tool or device.
+
+Accessibility is Usability applied to our users with disabilities - so generally we're just going to talk about Usability, because Accessibility is Usability for All
+```
+
+---
+
+<Img src="/img/Stevie_Wonder_Grammys.jpg" />
+
+<Appear>
+  <Text>
+    <em>You'd better believe this guy shops online</em>
+  </Text>
+</Appear>
+
+```notes
+Chances are you already had a good / loose idea what accessibility was. Those of us who talk about Accessibility a lot dwell on the importance of humanizing the process.
+
+This was Stevie Wonder at the 2016 Grammys
+```
+
+---
+
+### `What you probably want to know`
+
+**How does this impact me?**
+
+**How does this impact my audience?**
+
+**What do I need to learn?**
+
+---
+
+**How does this impact me?**
+
+- Requirements vary by client and audience
+- You're going to have to learn some stuff
+
+<Appear>we'll get there</Appear>
+
+---
+
+**How does this impact my audience?**
+
+- Your audience just got bigger
+- Start thinking a bit bigger about behavior
+
+---
+
+**What do I need to learn?**
+
+- The aim here is creating an improved experience
+- "Compliance" doesn't mean you're done
+- I'm going to go through what I think are the most common and highest impact "gotchas" in Accessibility.
+
+---
+
+export default Invert;
+
+<CodeSurfer
+  title="Common"
+  code={allGotchas}
+  lang="jsx"
+  dark={true}
+  steps={[
+    {},
+    { range: [1, 8], notes: "When a button's not a button..." },
+    { range: [10, 12], notes: "When a button's not a button..." },
+    {
+      range: [14, 17],
+      notes: "I'm sure your're already familiar with the recommendation here"
+    },
+    {
+      lines: [19, 20, 21, 22, 23, 24, 25, 27],
+      notes:
+        "sometimes I'm asked what it would take to make that div into a button"
+    },
+    { lines: [26] }
+  ]}
+/>
+
+```notes
+Worth noting that these examples are given in plain HTML, because it doesn't matter however you're coding the
+we're going to start with some common ones and work our way up
+```
+
+---
+
+## Lessons from not-a-button
+
+- Use the HTML element wherever possible
+- Implementing the entire
+
+---
+
+export default Invert;
+
+<CodeSurfer
+  title="Common and High-Impact"
+  code={allGotchas}
+  lang="jsx"
+  dark={true}
+  steps={[
+    {},
+    { range: [29, 32], notes: "Missing Text" },
+    { range: [34, 35], notes: "good! empty alt means it's decorative" },
+    { range: [36, 38], notes: "and this helps your fellow engineer" },
+    {
+      range: [40, 43],
+      notes: "I'm sure your're already familiar with the recommendation here"
+    }
+  ]}
+/>
+
+---
+
+## Lessons from missing alt
+
+<small>
+  Text alternatives are usually one of the most difficult pieces of accessibiliy
+  to fix, depending on your setup and scale. A CMS like wordpress will afford
+  you the ability to
+</small>
+
+- Follow the W3 alt text [decision tree](https://www.w3.org/WAI/tutorials/images/decision-tree/)
+- Implementing the entire
+
+---
+
+# #2 How do I do this?
+
+First test for impact.
+
+---
+
+If you've never tested your site before, usually the most direct way is to point an auditor at it.
+
+There are a lot of them out there. Choosing comes down to confidence in the results and providing actionable content.
+
+My personal favorite two are `aXe` and `pa11y` - they're
+
+---
+
+There are a lot of tools out there which help
+
+# #3 How do I keep it that way?
+
+So the big question is "I've solved it, how do I keep it that way?"
+
+Because it's the worst thing to find out that you've worked on a
+
+---
+
+# #4 Conclusions / Take-aways
+
+> _Hopefully the take-away from this is "wow, this is all pretty straightforward"_
+
+1. A11y is all about usability and making sure your app reaches the largest audience it can
+2. The **WCAG document** is your guide to getting accessibility right
+   1. **Level AA is the best practice**
+   2. The Acceptance Criteria give nuanced explanations for all issues you will find
+3. There are a LOT of tools to help analyze the state of your code and site
+   1. **Build time** (static analysis) - eslint-plugin-jsx-a11y,
+   2. **Runtime** (library-dependent) -
+   3. **DOM-parsing** (URL/DOM → results)- aXe, pa11y, pa11y-ci
+4.
+
+---
+
+# DRAFT CONTENT (pull above the fold)
+
+Like I said in the abstract of this talk, I have three assumptions:
+
+1. Know nothing (but are hopefully a fast learner)
+
+   > This is new content for a lot of people! Even if you don't know anything about this "Accessibility" thing – there will be no assumptions of prior experience.
+
+2. Have Questions
+
+   > Building accessible sites can be tough - we'll dig into the details of how to test and evaluate how usable your site is and how to prevent regressions.
+
+3. Want to Learn
+
+   > How accessibility will impact their site / business - Web Accessibility guidelines are the same for all sites but don't affect every site equally. We'll talk about sites which have tackled this topic well, those who tackled it poorly, and who benefits from tackling this early (hint: everyone!).
+
+---
