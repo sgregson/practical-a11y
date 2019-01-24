@@ -1,36 +1,52 @@
+# Practical Web Accessibility
 
-# mdx-deck basic template
+See the latest state at [practical-a11y.now.sh](practical-a11y.now.sh). [This Version](https://boston-php-practical-a11y-iou3vcg5g.now.sh/) was Presented at Boston PHP Meetup Jan 23, 2019.
 
-This was generated with [mdx-deck][]'s `npm init deck` command.
+## The Repository
 
-## Development
+Initially generated with [mdx-deck][]'s `npm init deck` command.
+
+### Requirements
+
+- NodeJS
+- Yarn
+
+### Development
 
 To run the presentation deck in development mode:
 
 ```sh
-npm start
+yarn start
 ```
 
 Edit the [`deck.mdx`](deck.mdx) file to get started.
 
-## Exporting
+### Deployment
+
+If you're me, deploy with:
+
+```sh
+yarn deploy
+```
+
+### Exporting
 
 To build the presentation deck as static HTML:
 
 ```sh
-npm run build
+yarn build
 ```
 
 To export a PDF:
 
 ```sh
-npm run pdf
+yarn pdf
 ```
 
 To export an image of the title slide:
 
 ```sh
-npm run image
+yarn image
 ```
 
 For more documentation see the [mdx-deck][] repo.
