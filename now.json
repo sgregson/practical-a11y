@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "boston-php-practical-a11y",
+  "name": "practical-a11y",
   "alias": "practical-a11y.now.sh",
   "builds": [
     { "src": "index.html", "use": "@now/static" },
