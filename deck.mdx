@@ -1,7 +1,7 @@
 import { Appear, Head, Notes, Code } from "mdx-deck";
 import { FullScreenCode, Invert, Split } from "mdx-deck/layouts";
 import { CodeSurfer } from "mdx-deck-code-surfer";
-const allGotchas = require("!raw-loader!./example-gotchas.jsx");
+const allGotchas = require("!raw-loader!./examples/example-gotchas.jsx");
 
 import fromTheme, {
   Card,
@@ -26,17 +26,17 @@ export const theme = fromTheme;
     name="twitter:description"
     content="A practical guide to making usable sites for everyone"
   />
-  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:card" content="summary_large_image" />
   <meta
     name="twitter:image"
     content="https://practical-a11y.now.sh/src/img/card.png"
   />
-  <meta name="twitter:domain" value="practical-a11y.now.sh"/>
+  <meta name="twitter:domain" value="practical-a11y.now.sh" />
   <meta name="twitter:url" value="https://practical-a11y.now.sh/" />
-  <meta name="twitter:label1" value="First Given"/>
-  <meta name="twitter:data1" value="Jan 23, 2019"/>
-  <meta name="twitter:label2" value="Last Updated"/>
-  <meta name="twitter:data2" value="Jan 24, 2019"/>
+  <meta name="twitter:label1" value="First Given" />
+  <meta name="twitter:data1" value="Jan 23, 2019" />
+  <meta name="twitter:label2" value="Last Updated" />
+  <meta name="twitter:data2" value="Jan 24, 2019" />
 </Head>
 
 ## Hello world!
@@ -451,7 +451,7 @@ export default Invert;
 
 <CodeSurfer
   title="Pa11y-CI"
-  code={require("!raw-loader!./example-pa11y-ci.sh")}
+  code={require("!raw-loader!./examples/example-pa11y-ci.sh")}
   lang="bash"
   dark={true}
   steps={[
@@ -501,7 +501,7 @@ export default Invert;
 
 <CodeSurfer
   title="Pa11y-CI"
-  code={require("!raw-loader!./example-pa11y-config.js")}
+  code={require("!raw-loader!./examples/example-pa11y-config.js")}
   lang="json"
   dark={true}
   steps={[
