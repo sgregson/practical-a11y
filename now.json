@@ -1,7 +1,7 @@
 {
   "version": 2,
   "name": "boston-php-practical-a11y",
-  "alias": "sgregson-practical-a11y.now.sh",
+  "alias": "practical-a11y.now.sh",
   "builds": [
     { "src": "index.html", "use": "@now/static" },
     { "src": "main.js", "use": "@now/static" },
