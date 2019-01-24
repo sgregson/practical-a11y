@@ -1,7 +1,7 @@
 import { Appear, Head, Notes, Code } from "mdx-deck";
 import { FullScreenCode, Invert, Split } from "mdx-deck/layouts";
 import { CodeSurfer } from "mdx-deck-code-surfer";
-const allGotchas = require("!raw-loader!./gotchas.jsx");
+const allGotchas = require("!raw-loader!./example-gotchas.jsx");
 
 import fromTheme, {
   Card,
@@ -31,12 +31,13 @@ export const theme = fromTheme;
 
 ## Hello world!
 
-and thanks for coming!
+thanks `BostonPHP` for having us  
+& thanks `Wayfair` for hosting us!
 
 <Caption>
-  You can find this at{" "}
-  <a href="https://sgregson-practical-a11y.now.sh" target="_blank">
-    https://sgregson-practical-a11y.now.sh
+  find this at{" "}
+  <a href="https://practical-a11y.now.sh" target="_blank">
+    https://practical-a11y.now.sh
   </a>
 </Caption>
 
@@ -48,10 +49,10 @@ and thanks for coming!
   <Appear>
     <li>Spencer Gregson</li>
     <li>
-      Frontend Engineer <code>@WAYFAIR</code>
+      Frontend Engineer <strong>@Wayfair</strong>
     </li>
     <li>Accessibility Enthusiast</li>
-    <li>Owner of a Cat, many bikes and guitars</li>
+    <li>Owner of cat, a plurality bikes and guitars</li>
     <li>Former Architectural Designer</li>
   </Appear>
 </List>
@@ -67,7 +68,7 @@ That last one is where I got my started with Accessibility.
 ---
 
 <Image src="/src/img/AlMaryahIsland.jpg">
-  <h1>whether this ↓</h1>
+  <h1>whether this ↑</h1>
   <Caption>Al Maryah Island, Abu Dhabi, UAE</Caption>
 </Image>
 
@@ -78,7 +79,7 @@ Whether working on the designs of buildings and cities, in this case a Master Pl
 ---
 
 <Image src="/src/img/inForm_ipads.jpg">
-  <h1>or this ↑</h1>
+  <h1>or these ↓</h1>
   <Caption>InForm Exhibit, BSA</Caption>
 </Image>
 
@@ -107,8 +108,8 @@ export default Split;
 <List unstyled>
   <li>
     <small>
-      My thoughts and opinions are my own and don't necessarily reflect my
-      current or former employers
+      My thoughts and opinions are my own and don't necessarily reflect those of
+      my current or former employers
     </small>
   </li>
 </List>
@@ -176,7 +177,7 @@ export default RelativeLayout;
 </Grid>
 
 ```notes
-Tonight we're talking about Practical Web Accessibility and I hope you learn three things from the developer-centric point of view
+Tonight we're talking about Practical Web Accessibility and I hope you come away knowing three things about it from a developer-centric point of view
 ```
 
 ---
@@ -247,40 +248,69 @@ This was Stevie Wonder at the 2016 Grammys
 
 **How does this impact me?**
 
-**How does this impact my audience?**
+**How does this impact my site?**
 
 **What do I need to learn?**
 
 ---
+
+export default RelativeLayout;
 
 **How does this impact me?**
 
-- Requirements vary by client and audience
-- You're going to have to learn some stuff
+- The requirements vary by client and audience
+- This has already been a requirement for <strong>EDU</strong> & <strong>GOV</strong> <small><br/>hopefully you knew that already?</small>
+- **TL;DR:** Either you love reading specifications, in which case you'll love the WCAG¹ <br/><strong>OR</strong> build up a list of topics which make you think <strong>"is this accessible?"</strong>
 
-<Appear>we'll get there</Appear>
+<Caption>¹Web Content Accessibility Guidelines</Caption>
+
+---
+
+**How does this impact my site?**
+
+- Your audience just got bigger! NICE!
+- You're looking at / into new functional testing, updates to some tooling, and ideally real user testing
+
+```notes
+On the one hand,
+
+The testing burden should be minor. The goal of section three of this talk is to help you automate the majority of it.
+```
 
 ---
 
-**How does this impact my audience?**
-
-- Your audience just got bigger
-- Start thinking a bit bigger about behavior
-
----
+export default RelativeLayout;
 
 **What do I need to learn?**
 
-- The aim here is creating an improved experience
-- "Compliance" doesn't mean you're done
+- Learn to identify common anti-patterns in code and design
+- The aim here is creating an improved experience  
+  "Compliance" doesn't mean you're done
 - I'm going to go through what I think are the most common and highest impact "gotchas" in Accessibility.
+- Our guide here is the <strong>WCAG Level AA</strong> criteria
+
+<Caption>
+  There are <strong>a lot</strong> of granular details in the{" "}
+  <a href="https://www.w3.org/TR/WCAG21">WCAG</a>
+</Caption>
+
+---
+
+export default RelativeLayout;
+
+## `What rules apply?`
+
+1. Working on a .gov or .edu site? **YES**<small><br/>hopefully you already know about **section 508** regulations</small><br/><br/>
+1. Selling things the public can buy? **YES**¹ <small><br/>time to look at the Web Content Accessibility Guidelines (**WCAG**)</small>
+
+<Caption>¹ Until courts figure out exact details</Caption>
 
 ---
 
 export default Invert;
 
 <CodeSurfer
-  title="Common"
+  title="Wrong HTML Element (Common)"
   code={allGotchas}
   lang="jsx"
   dark={true}
@@ -318,18 +348,44 @@ we're going to start with some common ones and work our way up
 export default Invert;
 
 <CodeSurfer
-  title="Common and High-Impact"
+  title="Text Alternatives (Common, also Difficult)"
   code={allGotchas}
   lang="jsx"
   dark={true}
   steps={[
     {},
-    { range: [29, 32], notes: "Missing Text" },
-    { range: [34, 35], notes: "good! empty alt means it's decorative" },
-    { range: [36, 38], notes: "and this helps your fellow engineer" },
+    { range: [29, 32] },
+    { range: [34, 35], notes: "good! empty alt means it's decorative, right?" },
+    { range: [36, 38], notes: "...aria-hidden helps your fellow engineer" },
     {
-      range: [40, 43],
-      notes: "I'm sure your're already familiar with the recommendation here"
+      range: [40, 41],
+      notes: "But if you're using templates..."
+    },
+    {
+      range: [43, 44],
+      notes: "find a way to make sure you always get a correct result"
+    },
+    {
+      range: [46, 52],
+      notes: () => (
+        <div>
+          A button or link which looks like:
+          <br />
+          <svg
+            height="1em"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+          >
+            <path
+              fill="currentColor"
+              d="M416 448h-84c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h84c17.7 0 32-14.3 32-32V160c0-17.7-14.3-32-32-32h-84c-6.6 0-12-5.4-12-12V76c0-6.6 5.4-12 12-12h84c53 0 96 43 96 96v192c0 53-43 96-96 96zm-47-201L201 79c-15-15-41-4.5-41 17v96H24c-13.3 0-24 10.7-24 24v96c0 13.3 10.7 24 24 24h136v96c0 21.5 26 32 41 17l168-168c9.3-9.4 9.3-24.6 0-34z"
+            />
+          </svg>
+          {"\u00A0"}
+          <small>©FontAwesome</small>
+        </div>
+      )
     }
   ]}
 />
@@ -340,54 +396,222 @@ export default Invert;
 
 <small>
   Text alternatives are usually one of the most difficult pieces of accessibiliy
-  to fix, depending on your setup and scale. A CMS like wordpress will afford
-  you the ability to
+  to fix, depending on your setup and scale. A CMS like wordpress, an Image
+  Service, or a Typed language will help guarantee text alternatives
 </small>
 
 - Follow the W3 alt text [decision tree](https://www.w3.org/WAI/tutorials/images/decision-tree/)
-- Implementing the entire
 
 ---
 
-# #2 How do I do this?
-
-First test for impact.
+# 2. OK, How do I Start?
 
 ---
 
+## `Validate your assumptions`
+
+And embrace the firehose
+
+- Your site may not be as bad off as you think
+- But it also could be much much worse 😉
+
+---
+
+## `'Sup Tools?`
+
+- **aXe** by the team at **[deque](https://www.deque.com/axe/)** <Appear><small><br/>
+  <a href="http://bitly.com/aXe-Chrome">chrome</a> /
+  <a href="http://bit.ly/aXe-Firefox">ff</a>,
+  <a href="https://github.com/dequelabs/axe-core#getting-started">NodeJS Command Line</a>,
+  <a href="https://github.com/dequelabs/axe-webdriverjs">Selenium</a></small></Appear>
+- **pa11y** a runner of the HTMLCodeSniffer <Appear><small><br/>
+  <a href="">CLI</a>, <a href="https://www.npmjs.com/package/pa11y-ci">Continuous Integration tool</a></small></Appear>
+
+```notes
 If you've never tested your site before, usually the most direct way is to point an auditor at it.
 
 There are a lot of them out there. Choosing comes down to confidence in the results and providing actionable content.
 
-My personal favorite two are `aXe` and `pa11y` - they're
+My personal favorite two are aXe and pa11y - they're
+```
 
 ---
 
-There are a lot of tools out there which help
+export default Invert;
 
-# #3 How do I keep it that way?
+<CodeSurfer
+  title="Pa11y-CI"
+  code={require("!raw-loader!./example-pa11y-ci.sh")}
+  lang="bash"
+  dark={true}
+  steps={[
+    { lines: [1, 2], notes: "install once" },
+    {
+      range: [4, 5],
+      notes: "omitting `--no-install` == huge puppeteer download"
+    },
+    {
+      notes: () => (
+        <Img
+          src="/src/img/npx-pa11y-ci.gif"
+          style={{ maxHeight: "80vh", margin: "auto" }}
+        />
+      )
+    },
+    { range: [7, 8] },
+    { range: [10, 11] }
+  ]}
+/>
 
+```notes
+The only requirement to run this is NodeJS installed on your machine. If you have an old version of Node (specifically with a version of npm < 5.2), you can just `npm install -g npm`.
+```
+
+---
+
+# Keeping issues fixed
+
+It's dangerous to go alone ⚔️
+
+```notes
 So the big question is "I've solved it, how do I keep it that way?"
 
 Because it's the worst thing to find out that you've worked on a
+```
 
 ---
 
-# #4 Conclusions / Take-aways
+## `Again, Pa11y-CI`
 
-> _Hopefully the take-away from this is "wow, this is all pretty straightforward"_
-
-1. A11y is all about usability and making sure your app reaches the largest audience it can
-2. The **WCAG document** is your guide to getting accessibility right
-   1. **Level AA is the best practice**
-   2. The Acceptance Criteria give nuanced explanations for all issues you will find
-3. There are a LOT of tools to help analyze the state of your code and site
-   1. **Build time** (static analysis) - eslint-plugin-jsx-a11y,
-   2. **Runtime** (library-dependent) -
-   3. **DOM-parsing** (URL/DOM → results)- aXe, pa11y, pa11y-ci
-4.
+Behold the power of the config object
 
 ---
+
+export default Invert;
+
+<CodeSurfer
+  title="Pa11y-CI"
+  code={require("!raw-loader!./example-pa11y-config.js")}
+  lang="json"
+  dark={true}
+  steps={[
+    {},
+    { notes: "pretty much what you'd expect" },
+    { range: [1, 1], notes: "a JSON config file" },
+    { range: [3, 7], notes: "and an array of URLs with some defaults" },
+    { range: [9, 24], notes: "and now this:  Holy Automation Batman 🤯 " },
+    {
+      range: [12, 18],
+      notes: () => (
+        <Img
+          src="/src/img/batman.gif"
+          style={{ maxHeight: "80vh", margin: "auto" }}
+        />
+      )
+    },
+    {
+      range: [9, 24],
+      notes: () => (
+        <React.Fragment>
+          <a target="_blank" href="https://github.com/pa11y/pa11y#actions">
+            Actions Documentation
+          </a>{" "}
+          the possibilities are HUGE
+        </React.Fragment>
+      )
+    }
+  ]}
+/>
+
+```notes
+pretty much what you'd expect: a config file with an array of URLs
+
+but this automation!
+```
+
+---
+
+## Keeping issues fixed
+
+- Implementing persistent automation isn't any harder than spot-checking your site
+- And spot-checking your site is pretty darn straightforward
+
+---
+
+# 4. Takeaways
+
+---
+
+`"wow, this is all pretty straightforward"`
+
+<List ordered>
+  <Appear>
+    <li>
+      A11y is all about usability and making sure your app reaches the largest
+      audience it can
+    </li>
+    <li>
+      The <strong>WCAG document</strong> is your guide to getting accessibility
+      right <strong>Level AA is the best practice</strong>
+      <br />
+      The Acceptance Criteria give nuanced explanations for all issues you will
+      find
+    </li>
+    <li>
+      There are a LOT of tools to help analyze the state of your code and site
+      <br />
+      <strong>Build time</strong> (static analysis) - eslint-plugin-jsx-a11y
+      <br />
+      <strong>Runtime</strong> (library-dependent) - react-a11y
+      <br />
+      <strong>DOM-parsing</strong> (URL/DOM → results) - aXe, pa11y, pa11y-ci
+    </li>
+  </Appear>
+</List>
+
+---
+
+export default RelativeLayout;
+
+### `Practical Web Accessibility`
+
+<Grid gutter="10px">
+  <Flex flex="0 0 33.333%">
+    <h2>
+      <Text>What it is</Text>
+    </h2>
+  </Flex>
+  <Flex flex="0 0 33.333%">
+    <h2>
+      <Text>How to do it</Text>
+    </h2>
+  </Flex>
+  <Flex flex="0 0 33.333%">
+    <h2>
+      <Text>Preventing regression</Text>
+    </h2>
+  </Flex>
+</Grid>
+
+<Grid gutter="10px">
+  <Flex flex="0 0 33.333%">
+    <Text>Knowing is half the battle</Text>
+  </Flex>
+  <Flex flex="0 0 33.333%">
+    <Text>If you can't fix it, don't break it</Text>
+  </Flex>
+  <Flex flex="0 0 33.333%">
+    <Text>Let fixed problems stay fixed</Text>
+  </Flex>
+</Grid>
+
+---
+
+# Fin
+
+<Img src="/src/img/closing.gif" />
+
+```notes
 
 # DRAFT CONTENT (pull above the fold)
 
@@ -404,5 +628,4 @@ Like I said in the abstract of this talk, I have three assumptions:
 3. Want to Learn
 
    > How accessibility will impact their site / business - Web Accessibility guidelines are the same for all sites but don't affect every site equally. We'll talk about sites which have tackled this topic well, those who tackled it poorly, and who benefits from tackling this early (hint: everyone!).
-
----
+```

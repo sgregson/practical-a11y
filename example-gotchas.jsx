@@ -12,7 +12,7 @@
 </div>
 
 // Better!
-<button onClick="">
+<button onclick="">
   <span>more button like</span>
 </button>
 
@@ -27,7 +27,7 @@
 </div>
 
 //-----------------
-// #2 Bad Text alternatives
+// #2 Missing text alternatives
 
 <img src="unsplash.com" />
 
@@ -39,6 +39,17 @@
 
 // Where it gets hard (JSX or other templating)
 <img src="unsplash.com" alt={data.title} />
+
+// Set up your data sources to always require alt text
+<img src={getImg().src} alt={getImg().title} />
+
+// A more subtle case
+<button onclick="...">
+  <i class="fas fa-sign-in"></i>
+</button>
+<a href="#">
+  <img src="..." alt="" />
+</a>
 
 //-----------------
 // # ARIA overuse

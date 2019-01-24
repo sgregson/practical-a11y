@@ -1,6 +1,7 @@
 import React from "react";
 import styled, { withTheme } from "styled-components";
 import syntaxStyle from "react-syntax-highlighter/styles/prism/funky";
+import prismBash from "react-syntax-highlighter/languages/prism/bash";
 
 // Good themes: future, yellow
 import { yellow as theme } from "mdx-deck/themes";
@@ -107,6 +108,9 @@ export default {
     white: "#fff"
   },
   prism: {
+    languages: {
+      shell: prismBash
+    },
     style: syntaxStyle
   }
   // Read the docs for more info:
