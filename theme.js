@@ -97,7 +97,7 @@ export const Caption = styled.span`
   font-size: ${({ small }) => (small ? "0.5em" : "0.75em")};
   position: absolute;
   bottom: 24px;
-  right: 0;
+  right: 24px;
   margin: 0;
 `;
 
