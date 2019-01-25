@@ -2,7 +2,9 @@
 
 ![Title Slide](./src/img/card.png)
 
-See the latest state at [https://practical-a11y.now.sh](practical-a11y.now.sh). [This Version](https://boston-php-practical-a11y-iou3vcg5g.now.sh/) was Presented at Boston PHP Meetup Jan 23, 2019.
+See the latest state at [https://practical-a11y.now.sh](practical-a11y.now.sh).
+
+[This Version](https://boston-php-practical-a11y-iou3vcg5g.now.sh/) was Presented at Boston PHP Meetup Jan 23, 2019.
 
 ## The Repository
 
