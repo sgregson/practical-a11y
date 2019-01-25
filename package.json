@@ -4,10 +4,10 @@
   "description": "An MDX Deck on Practical Web Accessibility",
   "scripts": {
     "start": "mdx-deck deck.mdx",
-    "build": "mdx-deck build --no-html deck.mdx",
-    "deploy": "yarn build && cp dist/index.html index.html && cp dist/main.js main.js && now && now alias",
+    "build": "mdx-deck build --no-html deck.mdx && cp dist/index.html index.html && cp dist/main.js main.js",
+    "deploy": "yarn build && now && now alias",
     "pdf": "mdx-deck pdf deck.mdx",
-    "image": "mdx-deck screenshot deck.mdx",
+    "image": "mdx-deck screenshot deck.mdx && cp dist/card.png src/img/card.png",
     "help": "mdx-deck"
   },
   "keywords": [],
