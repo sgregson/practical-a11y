@@ -4,6 +4,7 @@ import syntaxStyle from "react-syntax-highlighter/styles/prism/funky";
 import prismBash from "react-syntax-highlighter/languages/prism/bash";
 
 // Good themes: future, yellow
+// https://github.com/jxnblk/mdx-deck/blob/master/docs/theming.md#reference
 import { yellow as theme } from "mdx-deck/themes";
 
 /**
@@ -72,6 +73,10 @@ export const RelativeLayout = styled.div`
 export const Text = styled.p`
   text-align: left;
 `;
+export const Link = styled.a`
+  color: ${({ invert, theme }) =>
+    invert ? theme.colors.white : theme.colors.text};
+`;
 export const Img = styled.img`
   max-width: 100%;
   max-height: 100%;
@@ -100,7 +105,13 @@ export const Caption = styled.span`
   right: 24px;
   margin: 0;
 `;
-
+export const Breadcrumb = styled.span`
+  font-size: ${({ small }) => (small ? "0.5em" : "0.75em")};
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  margin: 0;
+`;
 export default {
   ...theme,
   colors: {
