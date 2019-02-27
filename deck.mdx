@@ -54,17 +54,17 @@ export const theme = fromTheme;
 
 ---
 
-## Who I am
+## New Speaker, Who dis?
 
 <List>
+  <li>Spencer Gregson 👋</li>
   <Appear>
-    <li>Spencer Gregson</li>
     <li>
       Frontend Engineer <strong>@Wayfair</strong>
     </li>
-    <li>Accessibility Enthusiast</li>
-    <li>Owner of cat, a plurality bikes and guitars</li>
     <li>Former Architectural Designer</li>
+    <li>One Cat, Many Bikes & Guitars</li>
+    <li>The "Accessibility Guy"</li>
   </Appear>
 </List>
 
@@ -118,22 +118,14 @@ export default Split;
 
 <List unstyled>
   <li>
-    <small>
-      My thoughts and opinions are my own and don't necessarily reflect those of
-      my current or former employers
-    </small>
+    My thoughts and opinions are my own and don't necessarily reflect those of
+    my current or former employers 😅
   </li>
 </List>
 
 ```notes
-I'm going to try and keep this focused on Accessibility for the Web, but if you're interested in all that "other stuff", come grab me later.
-```
+I'm going to do my best to keep this focused on Accessibility for the Web, but if you're interested in all that "other stuff", come grab me later.
 
----
-
-# 😅 so
-
-```notes
 So, with that out of the way let's talk accessibility.
 ```
 
@@ -174,17 +166,15 @@ export default RelativeLayout;
 </Grid>
 
 <Grid gutter="10px">
-  <Appear>
-    <Flex flex="0 0 33.333%">
-      <Text>Knowing is half the battle</Text>
-    </Flex>
-    <Flex flex="0 0 33.333%">
-      <Text>If you can't fix it, don't break it</Text>
-    </Flex>
-    <Flex flex="0 0 33.333%">
-      <Text>Let fixed problems stay fixed</Text>
-    </Flex>
-  </Appear>
+  <Flex flex="0 0 33.333%">
+    <Text>Knowing is half the battle</Text>
+  </Flex>
+  <Flex flex="0 0 33.333%">
+    <Text>If you can't fix it, don't break it</Text>
+  </Flex>
+  <Flex flex="0 0 33.333%">
+    <Text>Let fixed problems stay fixed</Text>
+  </Flex>
 </Grid>
 
 ```notes
@@ -210,6 +200,8 @@ Hopefully by the end of this presentation you'll know three things about Web Acc
 ---
 
 export default RelativeLayout;
+
+<Breadcrumb>What is A11y</Breadcrumb>
 
 ### `Usability`
 
@@ -239,11 +231,15 @@ Accessibility is Usability applied to our users with disabilities - so generally
 
 ---
 
-<Img src="/src/img/Stevie_Wonder_Grammys.jpg" />
+export default RelativeLayout;
+
+<Breadcrumb>What is A11y</Breadcrumb>
+
+<Img src="/src/img/Stevie_Wonder_Grammys.jpg" style={{ alignSelf: "center" }} />
 
 <Appear>
   <Text>
-    <em>You'd better believe this guy shops online</em>
+    <em>You'd better believe Stevie Wonder shops online</em>
   </Text>
 </Appear>
 
@@ -255,13 +251,28 @@ This was Stevie Wonder at the 2016 Grammys
 
 ---
 
+export default RelativeLayout;
+
+<Breadcrumb>What is A11y</Breadcrumb>
+
 ### `What you probably want to know`
 
-**How does this impact me?**
-
-**How does this impact my site?**
-
+**What are the rules?**  
+**How does this impact me?**  
+**How does this impact my site?**  
 **What do I need to learn?**
+
+---
+
+export default RelativeLayout;
+
+**What are the rules?**
+
+1. Working on a .gov or .edu site? **YES**<small><br/>hopefully you already know about **section 508** regulations</small><br/>
+1. Selling things to the public? **YES**¹ <small><br/>time to look at the Web Content Accessibility Guidelines (**WCAG**)</small>
+
+<Caption>¹ Until courts figure out exact details</Caption>
+<Breadcrumb>What is A11y</Breadcrumb>
 
 ---
 
@@ -269,13 +280,22 @@ export default RelativeLayout;
 
 **How does this impact me?**
 
-- The requirements vary by client and audience
-- This has already been a requirement for <strong>EDU</strong> & <strong>GOV</strong> <small><br/>hopefully you knew that already?</small>
-- **TL;DR:** Either you love reading specifications, in which case you'll love the WCAG¹ <br/><strong>OR</strong> build up a list of topics which make you think <strong>"is this accessible?"</strong>
+- Already a requirement for <strong>EDU</strong> & <strong>GOV</strong> sites
+- The requirements vary (by client and audience)
+- Either you love reading specifications¹ <strong>OR</strong> you build up enough keywords to ask <strong>"is this accessible?"</strong>
 
-<Caption>¹Web Content Accessibility Guidelines</Caption>
+<Caption>
+  <small>
+    ¹Prepare to ♥ Section 508 and Web Content Accessibility Guidelines
+  </small>
+</Caption>
+<Breadcrumb>What is A11y</Breadcrumb>
 
 ---
+
+export default RelativeLayout;
+
+<Breadcrumb>What is A11y</Breadcrumb>
 
 **How does this impact my site?**
 
@@ -292,9 +312,11 @@ The testing burden should be minor. The goal of section three of this talk is to
 
 export default RelativeLayout;
 
+<Breadcrumb>What is A11y</Breadcrumb>
+
 **What do I need to learn?**
 
-- Learn to identify common anti-patterns in code and design
+- Identify the most common anti-patterns in code and design
 - The aim here is creating an improved experience  
   "Compliance" doesn't mean you're done
 - I'm going to go through what I think are the most common and highest impact "gotchas" in Accessibility.
@@ -302,31 +324,21 @@ export default RelativeLayout;
 
 <Caption>
   There are <strong>a lot</strong> of granular details in the{" "}
-  <a href="https://www.w3.org/TR/WCAG21">WCAG</a>
+  <Link href="https://www.w3.org/TR/WCAG21">WCAG</Link>
 </Caption>
-
----
-
-export default RelativeLayout;
-
-## `What rules apply?`
-
-1. Working on a .gov or .edu site? **YES**<small><br/>hopefully you already know about **section 508** regulations</small><br/><br/>
-1. Selling things the public can buy? **YES**¹ <small><br/>time to look at the Web Content Accessibility Guidelines (**WCAG**)</small>
-
-<Caption>¹ Until courts figure out exact details</Caption>
 
 ---
 
 export default Invert;
 
 <CodeSurfer
-  title="Wrong HTML Element (Common)"
+  title="Basic HTML Semantics (Common)"
   code={allGotchas}
   lang="jsx"
   dark={true}
   steps={[
-    {},
+    { range: [1, 27] },
+    { lines: [1, 2, 3, 4, 6, 7, 8], notes: "When a button's not a button..." },
     { range: [1, 8], notes: "When a button's not a button..." },
     { range: [10, 12], notes: "When a button's not a button..." },
     {
@@ -349,6 +361,10 @@ we're going to start with some common ones and work our way up
 
 ---
 
+export default RelativeLayout;
+
+<Breadcrumb>What is A11y</Breadcrumb>
+
 ## Lessons from not-a-button
 
 - Use the HTML element wherever possible
@@ -364,7 +380,7 @@ export default Invert;
   lang="jsx"
   dark={true}
   steps={[
-    {},
+    { range: [29, 52] },
     { range: [29, 32] },
     { range: [34, 35], notes: "good! empty alt means it's decorative, right?" },
     { range: [36, 38], notes: "...aria-hidden helps your fellow engineer" },
@@ -374,7 +390,7 @@ export default Invert;
     },
     {
       range: [43, 44],
-      notes: "find a way to make sure you always get a correct result"
+      notes: "Find a way to make sure you always get a correct result"
     },
     {
       range: [46, 52],
@@ -403,6 +419,10 @@ export default Invert;
 
 ---
 
+export default RelativeLayout;
+
+<Breadcrumb>What is A11y</Breadcrumb>
+
 ## Lessons from missing alt
 
 <small>
@@ -415,18 +435,30 @@ export default Invert;
 
 ---
 
+export default RelativeLayout;
+
+<Breadcrumb>Starting</Breadcrumb>
+
 # 2. OK, How do I Start?
 
 ---
+
+export default RelativeLayout;
+
+<Breadcrumb>Starting</Breadcrumb>
 
 ## `Validate your assumptions`
 
 And embrace the firehose
 
 - Your site may not be as bad off as you think
-- But it also could be much much worse 😉
+- But it also could be much worse 😉
 
 ---
+
+export default RelativeLayout;
+
+<Breadcrumb>Starting</Breadcrumb>
 
 ## `'Sup Tools?`
 
@@ -480,6 +512,10 @@ The only requirement to run this is NodeJS installed on your machine. If you hav
 
 ---
 
+export default RelativeLayout;
+
+<Breadcrumb>Keep Fixed</Breadcrumb>
+
 # Keeping issues fixed
 
 It's dangerous to go alone ⚔️
@@ -491,6 +527,10 @@ Because it's the worst thing to find out that you've worked on a
 ```
 
 ---
+
+export default RelativeLayout;
+
+<Breadcrumb>Keep Fixed</Breadcrumb>
 
 ## `Again, Pa11y-CI`
 
@@ -541,6 +581,10 @@ but this automation!
 ```
 
 ---
+
+export default RelativeLayout;
+
+<Breadcrumb>Keep Fixed</Breadcrumb>
 
 ## Keeping issues fixed
 
