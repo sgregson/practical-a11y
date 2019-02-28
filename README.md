@@ -2,9 +2,10 @@
 
 ![Title Slide](./src/img/card.png)
 
-See the latest state at [https://practical-a11y.now.sh](practical-a11y.now.sh).
+See the latest presentation at [https://practical-a11y.now.sh](practical-a11y.now.sh)
 
-[This Version](https://boston-php-practical-a11y-iou3vcg5g.now.sh/) was Presented at Boston PHP Meetup Jan 23, 2019.
+- I presented [This Version](https://boston-php-practical-a11y-iou3vcg5g.now.sh/) at the [BostonPHP Meetup](https://meetup.com/bostonphp/events/257725112/) Jan 23, 2019
+- I Presented [this version](https://bos-reactjs-practical-a11y.now.sh/) at [Boston ReactJS](https://www.meetup.com/ReactJS-Boston/events/259015987) Feb 27, 2019
 
 ## The Repository
 
